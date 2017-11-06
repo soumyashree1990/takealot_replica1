@@ -2,22 +2,21 @@ package za.co.reverside.takealot_replica.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Service.CartData;
 import za.co.reverside.takealot_replica.Service.CartService;
 import za.co.reverside.takealot_replica.Util.SessionUtils;
 import za.co.reverside.takealot_replica.controller.Constants.ControllerConstants;
 
-@Controller
+@RestController
 public class CartController {
 
-    @Autowired
     private CartService cartService;
 //	@Autowired
 //	private ProductConfigService productService;

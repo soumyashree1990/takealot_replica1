@@ -10,7 +10,6 @@ import za.co.reverside.takealot_replica.Util.Utility;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    @Autowired
     AddressRepository addressRepository;
 
     public void saveAddress(AddressForm address, Customer customer) {

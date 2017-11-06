@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Service
 public class CategoryConfigServiceImpl implements CategoryConfigService {
-    @Autowired
+
     private CategoryConfigRepository categoryConfigRepository;
 
     /**

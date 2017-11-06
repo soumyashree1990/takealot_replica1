@@ -1,7 +1,7 @@
 package za.co.reverside.takealot_replica.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.RestController;
 import za.co.reverside.takealot_replica.Model.Category;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.SubCategory;
@@ -23,14 +23,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 public class CatalogController {
 
-    @Autowired
     private CategoryConfigService categoryConfigurationService;
-    @Autowired
+
     private ProductConfigService productConfigurationService;
-    @Autowired
+
     private ServletContext context;
 //	@Autowired
 //	private CartService cartService;
@@ -55,7 +54,7 @@ public class CatalogController {
      * @param Model
      * @return Home Page View
      */
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/page", method = RequestMethod.GET)
     public String returnHomePage(Model model, HttpServletRequest request) {
         Map<Category, List<SubCategory>> categoryMap = new HashMap<Category, List<SubCategory>>();
         logger.info("Processing information for home page");

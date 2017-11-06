@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.ReviewForm;
@@ -24,18 +25,18 @@ import za.co.reverside.takealot_replica.Util.SessionUtils;
 import za.co.reverside.takealot_replica.controller.Constants.ControllerConstants;
 
 
-@Controller
+@RestController
 public class ProductController {
 
     //	@Autowired
 //	private CartService cartService;
-    @Autowired
+
     private ProductConfigService productConfigurationService;
     //	@Autowired
 //	private CategoryConfigService categoryConfigurationService;
-    @Autowired
+
     private ReviewService reviewService;
-    @Autowired
+
     private CustomerService customerService;
 
     /**
@@ -68,7 +69,7 @@ public class ProductController {
             List<ReviewForm> reviewsList = reviewService
                     .getProductReviews(productId);
             for (ReviewForm reviewForm : reviewsList) {
-                Long customerId = reviewForm.getCustomerId();
+                String customerId = reviewForm.getCustomerId();
                 reviewMap.put(customerService.getCustomerById(customerId),
                         reviewForm);
             }

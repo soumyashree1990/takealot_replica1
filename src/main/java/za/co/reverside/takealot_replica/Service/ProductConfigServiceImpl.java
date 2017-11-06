@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class ProductConfigServiceImpl implements ProductConfigService {
 
-    @Autowired
     private ProductConfigRepository productConfigRepository;
 
     public List<Product> getFeaturedProducts() {

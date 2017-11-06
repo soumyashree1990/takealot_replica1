@@ -1,11 +1,13 @@
 package za.co.reverside.takealot_replica.Repository;
 
+import org.springframework.stereotype.Repository;
 import za.co.reverside.takealot_replica.Model.Category;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.SubCategory;
 
 import java.util.List;
 
+@Repository
 public interface CategoryConfigRepository {
 
     List<Category> readAllCategories();

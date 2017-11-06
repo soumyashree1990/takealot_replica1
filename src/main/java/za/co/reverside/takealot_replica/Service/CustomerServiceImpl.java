@@ -8,7 +8,7 @@ import za.co.reverside.takealot_replica.Repository.CustomerRepository;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    @Autowired
+
     private CustomerRepository customerRepository;
 
     @Override

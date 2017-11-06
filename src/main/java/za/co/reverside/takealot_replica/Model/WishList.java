@@ -1,5 +1,8 @@
 package za.co.reverside.takealot_replica.Model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "WishList")
 public class WishList {
 
     private Long productId;

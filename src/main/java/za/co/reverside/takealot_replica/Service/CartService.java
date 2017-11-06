@@ -20,9 +20,8 @@ public class CartService {
      * @author Sai Upadhyayula
      *
      */
-    @Autowired
+
     private ProductConfigService productConfigService;
-    @Autowired
     private HttpSession session;
 
     // Add Products to Shopping Cart

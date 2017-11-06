@@ -1,25 +1,33 @@
 package za.co.reverside.takealot_replica.Util;
 
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import za.co.reverside.takealot_replica.Model.Customer;
+import za.co.reverside.takealot_replica.Repository.CustomerRepository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-public class CustomerMapper implements RowMapper<Customer> {
-
-    @Override
-    public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Customer customer = new Customer();
-        customer.setCustomerId(rs.getLong("Customer_Id"));
-        customer.setFirstName(rs.getString("First_Name"));
-        customer.setLastName(rs.getString("Last_Name"));
-        customer.setUserName(rs.getString("User_Name"));
-        customer.setPassword(rs.getString("Pass"));
-        customer.setEmailAddress(rs.getString("Email_Address"));
-        customer.setPhoneNumber(rs.getString("Phone_Number"));
-
-        return customer;
+@Component
+public class CustomerMapper {
+    private CustomerRepository customerRepository;
+    public CustomerMapper(CustomerRepository customerRepository){
+        this.customerRepository=customerRepository;
     }
+
+    public void run(Customer rs) throws Exception {
+
+        Customer customer = new Customer();
+        customer.setCustomerId(rs.getCustomerId());
+        customer.setEmailAddress(rs.getEmailAddress());
+        customer.setFirstName(rs.getFirstName());
+        customer.setLastName(rs.getLastName());
+        customer.setPassword(rs.getPassword());
+        customer.setPhoneNumber(rs.getPhoneNumber());
+        customer.setUserName(rs.getUserName());
+
+        //add our hotel to database
+        this.customerRepository.save(customer);
+    }
+
+
+
+
 
 }

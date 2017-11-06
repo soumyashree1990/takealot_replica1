@@ -6,12 +6,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Product;
@@ -21,13 +20,11 @@ import za.co.reverside.takealot_replica.Service.WishListService;
 import za.co.reverside.takealot_replica.Util.SessionUtils;
 import za.co.reverside.takealot_replica.controller.Constants.ControllerConstants;
 
-@Controller
+@RestController
 public class WishListController {
 
     private static String wishListPage = "template/wishlist";
-    @Autowired
     private WishListService wishListService;
-    @Autowired
     private CartService cartService;
     private HttpSession session;
 

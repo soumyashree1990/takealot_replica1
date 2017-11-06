@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReviewForm {
 
     private Long reviewId;
-    private Long customerId;
+    private String customerId;
     private Long productId;
     private String reviewTitle;
     private String reviewText;
@@ -20,11 +20,11 @@ public class ReviewForm {
         this.reviewId = reviewId;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

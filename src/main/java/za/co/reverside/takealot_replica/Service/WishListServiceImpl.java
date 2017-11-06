@@ -9,9 +9,9 @@ import java.util.List;
 
 public class WishListServiceImpl implements WishListService {
 
-    @Autowired
+
     private WishListRepository wishListRepository;
-    @Autowired
+
     private ProductConfigService productConfigService;
 
     @Override

@@ -1,8 +1,13 @@
 package za.co.reverside.takealot_replica.Model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Customer")
 public class Customer {
 
-    private Long customerId;
+    @Id
+    private String customerId;
     private String firstName;
     private String lastName;
     private String userName;
@@ -11,11 +16,11 @@ public class Customer {
     private String phoneNumber;
     private boolean registered;
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

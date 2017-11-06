@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
-    @Autowired
+
     private PaymentRepository paymentRepository;
     private HttpSession session;
 
@@ -24,7 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
     public CreditCardForm gatherCardDetails(CreditCardForm creditCardForm,
                                             HttpServletRequest request) {
         session = request.getSession();
-        Long customerId = ((Customer) session.getAttribute("customer"))
+        String customerId = ((Customer) session.getAttribute("customer"))
                 .getCustomerId();
         String creditCardNumber = request.getParameter("creditCardNumber");
         Integer month = Integer.parseInt(request.getParameter("month"));

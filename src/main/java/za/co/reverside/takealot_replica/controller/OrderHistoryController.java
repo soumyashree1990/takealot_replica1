@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import za.co.reverside.takealot_replica.Model.AddressForm;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Order;
@@ -21,16 +22,14 @@ import za.co.reverside.takealot_replica.Service.AddressService;
 import za.co.reverside.takealot_replica.Service.OrderService;
 import za.co.reverside.takealot_replica.Util.SessionUtils;
 
-@Controller
+@RestController
 public class OrderHistoryController {
 
     private static String orderHistoryPage = "template/ordersList";
     private static String orderDetailsPage = "template/orderDetails";
     @SuppressWarnings("unused")
     private HttpSession session;
-    @Autowired
     private OrderService orderService;
-    @Autowired
     private AddressService addressService;
 
     @RequestMapping(value = "/orderHistory", method = RequestMethod.GET)

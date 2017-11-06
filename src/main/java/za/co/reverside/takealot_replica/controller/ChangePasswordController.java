@@ -1,11 +1,11 @@
 package za.co.reverside.takealot_replica.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Service.CustomerService;
@@ -14,11 +14,10 @@ import za.co.reverside.takealot_replica.Util.SessionUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 public class ChangePasswordController {
 
     private String changePasswordPage = "template/changepassword";
-    @Autowired
     private CustomerService customerService;
     @SuppressWarnings("unused")
     private HttpSession session;

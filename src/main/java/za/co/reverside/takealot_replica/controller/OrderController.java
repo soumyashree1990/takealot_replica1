@@ -14,24 +14,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import za.co.reverside.takealot_replica.Model.*;
 import za.co.reverside.takealot_replica.Service.*;
 import za.co.reverside.takealot_replica.Util.SessionUtils;
 import za.co.reverside.takealot_replica.controller.Constants.ControllerConstants;
 
 
-@Controller
+@RestController
 public class OrderController {
 
-    @Autowired
     private OrderService orderService;
-    @Autowired
+
     private PaymentService paymentService;
-    @Autowired
+
     private CartService cartService;
     //	@Autowired
 //	private ProductConfigService productConfigService;
-    @Autowired
     private MailSenderService mailSenderService;
     @SuppressWarnings("unused")
     private HttpSession session;

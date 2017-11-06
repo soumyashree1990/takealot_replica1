@@ -15,7 +15,6 @@ import java.util.List;
 @Service
 public class ReviewServiceImpl implements ReviewService {
 
-    @Autowired
     private ReviewRepository reviewRepository;
 
     @Override
