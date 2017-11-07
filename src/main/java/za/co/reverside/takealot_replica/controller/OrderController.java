@@ -11,10 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.*;
 import za.co.reverside.takealot_replica.Service.*;
 import za.co.reverside.takealot_replica.Util.SessionUtils;
@@ -35,7 +32,7 @@ public class OrderController {
     @SuppressWarnings("unused")
     private HttpSession session;
 
-    @RequestMapping(value = "/createOrderByCC", method = RequestMethod.POST)
+    @PostMapping("/createOrderByCC")
     public String createOrder(Model model,
                               @ModelAttribute("paymentForm") CreditCardForm creditCardForm,
                               HttpServletRequest request, HttpServletResponse response) throws ParseException,
@@ -78,7 +75,7 @@ public class OrderController {
         paymentService.payByCreditCard(creditCardForm);
     }
 
-    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    @GetMapping("/order")
     public String getOrderConfirmPage(Model model, HttpServletRequest request) {
         Order order = SessionUtils.getSessionVariables(request, "orderDetails");
         model.addAttribute("orderDetails", order);

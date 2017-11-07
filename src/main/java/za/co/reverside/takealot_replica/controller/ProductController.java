@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.ReviewForm;
@@ -43,14 +40,13 @@ public class ProductController {
      * Product Controller method which retrieves the information required in the
      * product page
      *
-     * @author Sai Upadhyayula
      *
      * @param Model
      * @param ProductId
      * @return Product Page View
      * @throws ParseException
      */
-    @RequestMapping(value = "/product", method = RequestMethod.GET, params = { "productId" })
+    @GetMapping(value = "/product/{productId}")
     public String handleRequest(Model model,
                                 @RequestParam(value = "productId") Long productId,
                                 HttpServletRequest request) throws ParseException {

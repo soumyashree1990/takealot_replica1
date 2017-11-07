@@ -9,10 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.ReviewForm;
@@ -33,7 +30,7 @@ public class ReviewsController {
     @SuppressWarnings("unused")
     private HttpSession session;
 
-    @RequestMapping(value = "/reviews", method = RequestMethod.GET)
+    @GetMapping("/reviews")
     public String getReviewsPage(HttpServletRequest request, Model model) {
         model.addAttribute("page", reviewsPage);
         session = SessionUtils.createSession(request);
@@ -53,7 +50,7 @@ public class ReviewsController {
         return "account";
     }
 
-    @RequestMapping(value = "/reviews/product", method = RequestMethod.POST)
+    @PostMapping("/reviews/product")
     public String reviewProduct(HttpServletRequest request, Model model,
                                 @ModelAttribute("review") ReviewForm reviewForm)
             throws ParseException {

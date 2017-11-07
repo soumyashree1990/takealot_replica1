@@ -2,6 +2,7 @@ package za.co.reverside.takealot_replica.controller;
 
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,7 @@ public class AddressController {
 
     private static String changeAddressPage = "template/changeAddress";
 
-    @RequestMapping(value = "/addressDetails", method = RequestMethod.GET)
+    @GetMapping("/addressDetails")
     public String getAddressDetailsPage(HttpServletRequest request, Model model) {
         model.addAttribute("page", changeAddressPage);
         return "account";

@@ -10,8 +10,8 @@ public interface CustomerService {
 
     public boolean changePassword(String password1, Customer customer);
 
-    public Customer getCustomerById(Long customerId);
+    public Customer getCustomerById(String customerId);
 
-    public Long getCustomerId(String userName);
+    public String getCustomerId(String userName);
 
 }

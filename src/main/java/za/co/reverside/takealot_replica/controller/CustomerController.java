@@ -38,7 +38,7 @@ public class CustomerController {
      * @return checkout/home page
      */
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping("/login")
     public String checkForUserLogin(
             @RequestParam(value = "userName", required = true) String userName,
             @RequestParam(value = "password", required = true) String password,
@@ -82,7 +82,7 @@ public class CustomerController {
      * @return login
      */
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @PostMapping("/register")
     public String registerUser(
             @RequestParam(value = "userName", required = true) String userName,
             @RequestParam(value = "password", required = true) String password,
@@ -106,7 +106,7 @@ public class CustomerController {
 
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @GetMapping("/login")
     public String getLoginPage(HttpServletRequest request, Model model) {
         Boolean registerFlag = (Boolean) model.asMap().get("registerFlag");
         Integer result = (Integer) model.asMap().get("result");
@@ -122,7 +122,7 @@ public class CustomerController {
         }
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @GetMapping("/logout")
     public String logout(HttpServletRequest request, Model model) {
         session = SessionUtils.createSession(request);
         SessionUtils.removeSessionVariables("customer", request);
@@ -130,13 +130,13 @@ public class CustomerController {
         return "redirect:home";
     }
 
-    @RequestMapping(value = "/successSignUp", method = RequestMethod.GET)
+    @GetMapping("/successSignUp")
     public String signupSuccess(Model model) {
         model.addAttribute("result", 1);
         return "login";
     }
 
-    @RequestMapping(value = "/failureSignUp", method = RequestMethod.GET)
+    @GetMapping("/failureSignUp")
     public String signupFailure(Model model) {
         model.addAttribute("result", 0);
         return "login";

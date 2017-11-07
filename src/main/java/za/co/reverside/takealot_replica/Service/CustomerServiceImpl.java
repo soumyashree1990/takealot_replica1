@@ -1,6 +1,5 @@
 package za.co.reverside.takealot_replica.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Repository.CustomerRepository;
@@ -29,13 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomerById(Long customerId) {
+    public Customer getCustomerById(String customerId) {
         return customerRepository.getCustomerById(customerId);
     }
 
     @Override
-    public Long getCustomerId(String userName) {
-        return customerRepository.getCustomerById(userName);
+    public String getCustomerId(String userName){ return customerRepository.getCustomerByUsername(userName);}
     }
 
-}
+

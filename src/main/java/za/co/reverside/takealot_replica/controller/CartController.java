@@ -4,10 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Service.CartData;
 import za.co.reverside.takealot_replica.Service.CartService;
@@ -38,7 +35,7 @@ public class CartController {
      * @param HttpServletRequest
      * @return Product Page View
      */
-    @RequestMapping(value = "/addProduct", method = RequestMethod.GET)
+    @GetMapping("/addProduct")
     public String addProducts(Model model,
                               @RequestParam(value = "productId") Long productId,
                               HttpServletRequest request) {
@@ -87,7 +84,7 @@ public class CartController {
      * @param HttpServletRequest
      * @return Shopping Cart View
      */
-    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    @GetMapping("/cart")
     public String viewCart(Model model, HttpServletRequest request) {
         return getCartpage();
     }
@@ -104,7 +101,7 @@ public class CartController {
      */
 
     // TODO- Implement BindingResult and FormValidations
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @PostMapping("/update")
     public String updateCart(Model model, HttpServletRequest request) {
         Long productId = Long.parseLong(request.getParameter("productid"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
@@ -117,14 +114,12 @@ public class CartController {
     /**
      * Method to Remove the Products from shopping cart
      *
-     * @author Sai Upadhyayula
-     *
      * @param Model
      * @param ProductID
      * @param HttpServletRequest
      * @return Shopping Cart View
      */
-    @RequestMapping(value = "/remove", method = RequestMethod.GET)
+    @GetMapping("/remove")
     public String removeProduct(
             @RequestParam(value = "productId") Long productId, Model model,
             HttpServletRequest request) {
@@ -137,14 +132,13 @@ public class CartController {
     /**
      * Method to Clear the Products from shopping cart
      *
-     * @author Sai Upadhyayula
      *
      * @param Model
      * @param ProductID
      * @param HttpServletRequest
      * @return Shopping Cart View
      */
-    @RequestMapping(value = "/clear", method = RequestMethod.GET)
+    @GetMapping("/clear")
     public String clearCart(Model model, HttpServletRequest request) {
         CartData cartData = SessionUtils.getSessionVariables(request,
                 ControllerConstants.CART);

@@ -1,7 +1,7 @@
 package za.co.reverside.takealot_replica.controller;
 
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.Category;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.SubCategory;
@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,12 +46,11 @@ public class CatalogController {
      * Catalog Controller method which retrieves the information required in the
      * application home page(Categories,SubCategories,Featured Items)
      *
-     * @author Sai Upadhyayula
      *
      * @param Model
      * @return Home Page View
      */
-    @RequestMapping(value = "/page", method = RequestMethod.GET)
+    @GetMapping("/page")
     public String returnHomePage(Model model, HttpServletRequest request) {
         Map<Category, List<SubCategory>> categoryMap = new HashMap<Category, List<SubCategory>>();
         logger.info("Processing information for home page");
@@ -72,7 +68,7 @@ public class CatalogController {
         return getHomePage();
     }
 
-    @RequestMapping(value = "/cateogry", method = RequestMethod.GET)
+    @GetMapping("/cateogry")
     public String fetchProductsByCategory(Model model,
                                           @RequestParam("category") String categoryName,
                                           HttpServletRequest request) {
@@ -82,7 +78,7 @@ public class CatalogController {
         return getCategoryPage();
     }
 
-    @RequestMapping(value = "/subcateogry", method = RequestMethod.GET)
+    @GetMapping("/subcateogry")
     public String fetchProductsBySubCategory(Model model,
                                              @RequestParam("subcategory") String subCategoryName,
                                              HttpServletRequest request) {
@@ -92,7 +88,7 @@ public class CatalogController {
         return getCategoryPage();
     }
 
-    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    @GetMapping("/account")
     public String getAccountsPage(Model model, HttpServletRequest request) {
         model.addAttribute("page", accountsTemplatePage);
         return getAccountPage();

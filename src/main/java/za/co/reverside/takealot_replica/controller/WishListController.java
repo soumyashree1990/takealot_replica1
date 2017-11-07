@@ -7,10 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Product;
@@ -28,7 +25,7 @@ public class WishListController {
     private CartService cartService;
     private HttpSession session;
 
-    @RequestMapping(value = "/wishlist", method = RequestMethod.GET)
+    @GetMapping("/wishlist")
     public String getWishListPage(HttpServletRequest request, Model model) {
         session = SessionUtils.createSession(request);
         model = getWishListProducts(model, session);
@@ -38,11 +35,10 @@ public class WishListController {
     /**
      * Method to Add Products to the Wishlist
      *
-     * @author Sai Upadhyayula
      *
      *
      */
-    @RequestMapping(value = "/addToWishlist", method = RequestMethod.GET)
+    @GetMapping("/addToWishlist")
     public String addProductToWishList(Model model,
                                        @RequestParam(value = "productId") Long productId,
                                        HttpServletRequest request) {
@@ -62,11 +58,10 @@ public class WishListController {
      * Adds the product to the Wishlist and then deletes the product from the
      * Shopping Cart.
      *
-     * @author Sai Upadhyayula
      *
      *
      */
-    @RequestMapping(value = "/moveToWishList", method = RequestMethod.GET)
+    @GetMapping("/moveToWishList")
     public String moveToWishList(Model model,
                                  @RequestParam(value = "productId") Long productId,
                                  HttpServletRequest request) {
@@ -88,11 +83,10 @@ public class WishListController {
      * Deletes the product From the Wishlist and then Add the product from the
      * Shopping Cart.
      *
-     * @author Sai Upadhyayula
      *
      *
      */
-    @RequestMapping(value = "/moveToCart", method = RequestMethod.GET)
+    @GetMapping("/moveToCart")
     public String moveToCart(Model model, HttpServletRequest request,
                              @RequestParam(value = "productId") Long productId,
                              RedirectAttributes redirectAttributes) {
@@ -104,11 +98,10 @@ public class WishListController {
     /**
      * Method to Remove Products from the Wishlist.
      *
-     * @author Sai Upadhyayula
      *
      *
      */
-    @RequestMapping(value = "/removeFromWishList", method = RequestMethod.GET)
+    @GetMapping("/removeFromWishList")
     public String removeProductFromWishList(Model model,
                                             @RequestParam(value = "productId") Long productId,
                                             HttpServletRequest request) {

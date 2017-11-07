@@ -13,7 +13,8 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
 
     public boolean changePassword(String password,Customer customer);
 
-    public Customer getCustomerById(Long customerId);
+    public Customer getCustomerById(String customerId);
 
-    Long getCustomerById(String userName);
+
+    public String getCustomerByUsername(String userName);
 }

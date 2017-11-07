@@ -5,10 +5,7 @@ import javax.servlet.http.HttpSession;
 
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import za.co.reverside.takealot_replica.Model.AddressForm;
 import za.co.reverside.takealot_replica.Model.Customer;
@@ -28,7 +25,7 @@ public class CheckoutController {
 
     private HttpSession session;
 
-    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+    @GetMapping("/checkout")
     public ModelAndView checkOutCart(Model model, HttpServletRequest request) {
         session = SessionUtils.createSession(request);
         Customer customer = (Customer) session.getAttribute("customer");
@@ -44,7 +41,7 @@ public class CheckoutController {
         }
     }
 
-    @RequestMapping(value = "/address", method = RequestMethod.POST)
+    @PostMapping("/address")
     public String validateAddressInformation(
             @ModelAttribute("addressForm") AddressForm address, Model model,
             HttpServletRequest request) {
@@ -69,7 +66,7 @@ public class CheckoutController {
         return "redirect:checkout";
     }
 
-    @RequestMapping(value = "/payment", method = RequestMethod.GET)
+    @GetMapping("/payment")
     public String getPaymentForm(Model model, HttpServletRequest request) {
         return "payment";
     }

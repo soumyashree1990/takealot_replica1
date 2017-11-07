@@ -2,7 +2,7 @@ package za.co.reverside.takealot_replica.Model;
 
 public class CreditCardForm {
 
-    private Long customerId;
+    private String customerId;
 
     private String creditCardNumber;
     private Integer month;
@@ -10,7 +10,7 @@ public class CreditCardForm {
     private String name;
     private String cvvCode;
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 

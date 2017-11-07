@@ -2,10 +2,7 @@ package za.co.reverside.takealot_replica.controller;
 
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Service.CustomerService;
@@ -22,7 +19,7 @@ public class ChangePasswordController {
     @SuppressWarnings("unused")
     private HttpSession session;
 
-    @RequestMapping(value = "/change-password", method = RequestMethod.GET)
+    @GetMapping("/change-password")
     public String getChangePasswordPage(HttpServletRequest request,
                                         Model model, Boolean flag) {
         model.addAttribute("page", changePasswordPage);
@@ -32,7 +29,7 @@ public class ChangePasswordController {
         return "account";
     }
 
-    @RequestMapping(value = "changepassword", method = RequestMethod.POST)
+    @PostMapping("/changepassword")
     public String changePassword(HttpServletRequest request,
                                  @RequestParam("password1") String password1,
                                  @RequestParam("password2") String password2, Model model,

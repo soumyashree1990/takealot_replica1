@@ -22,7 +22,7 @@ public class CustomerMapper {
         customer.setPhoneNumber(rs.getPhoneNumber());
         customer.setUserName(rs.getUserName());
 
-        //add our hotel to database
+        //add customer to database
         this.customerRepository.save(customer);
     }
 
