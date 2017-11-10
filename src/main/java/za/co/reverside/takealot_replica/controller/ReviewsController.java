@@ -15,7 +15,7 @@ import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.ReviewForm;
 import za.co.reverside.takealot_replica.Service.ProductConfigService;
 import za.co.reverside.takealot_replica.Service.ReviewService;
-import za.co.reverside.takealot_replica.Util.SessionUtils;
+import za.co.reverside.takealot_replica.Utils.SessionUtils;
 
 
 @RestController

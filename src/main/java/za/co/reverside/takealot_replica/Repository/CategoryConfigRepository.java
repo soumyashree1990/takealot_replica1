@@ -1,5 +1,6 @@
 package za.co.reverside.takealot_replica.Repository;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import za.co.reverside.takealot_replica.Model.Category;
 import za.co.reverside.takealot_replica.Model.Product;
@@ -8,29 +9,12 @@ import za.co.reverside.takealot_replica.Model.SubCategory;
 import java.util.List;
 
 @Repository
-public interface CategoryConfigRepository {
+public interface CategoryConfigRepository extends MongoRepository{
 
     List<Category> readAllCategories();
 
-    List<SubCategory> readAllSubCategories();
-
-    Long readCategoryByProductId(Product product);
-
-    Category readCategoryBySubCategoryId(Long subCategoryId);
-
-    Category readCategoryBySubCategoryName(String subCategoryName);
-
-    List<SubCategory> readSubCategoryByCategoryId(Category category);
-
-    SubCategory readSubCategoryByCategoryName(Category category);
-
-    Long readSubCategoryByProductId(Product Product);
-
-    List<SubCategory> readAllSubCategoriesByCategoryId(
-            Long categoryId);
-
+    Object readCategoryByProductId(Product product);
     List<Product> getProductsByCategory(String categoryName);
 
-    List<Product> getProductsBySubCategory(String subCategoryName);
 
 }

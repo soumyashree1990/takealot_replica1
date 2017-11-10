@@ -9,12 +9,10 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
 
     public Customer validateUsers(String userName, String password);
 
-    public Integer registerUser(Customer customer);
+    public boolean registerUser(Customer customer);
 
     public boolean changePassword(String password,Customer customer);
 
-    public Customer getCustomerById(String customerId);
+    public Customer findCustomerByUserName(String userName);
 
-
-    public String getCustomerByUsername(String userName);
 }

@@ -17,7 +17,7 @@ import za.co.reverside.takealot_replica.Model.Order;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Service.AddressService;
 import za.co.reverside.takealot_replica.Service.OrderService;
-import za.co.reverside.takealot_replica.Util.SessionUtils;
+import za.co.reverside.takealot_replica.Utils.SessionUtils;
 
 @RestController
 public class OrderHistoryController {

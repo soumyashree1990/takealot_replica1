@@ -7,15 +7,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Model.ReviewForm;
 import za.co.reverside.takealot_replica.Service.CartData;
-import za.co.reverside.takealot_replica.Service.CustomerService;
 import za.co.reverside.takealot_replica.Service.ProductConfigService;
 import za.co.reverside.takealot_replica.Service.ReviewService;
 import za.co.reverside.takealot_replica.Util.SessionUtils;

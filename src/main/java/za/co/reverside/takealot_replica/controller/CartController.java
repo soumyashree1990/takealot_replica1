@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Service.CartData;
 import za.co.reverside.takealot_replica.Service.CartService;
-import za.co.reverside.takealot_replica.Util.SessionUtils;
+import za.co.reverside.takealot_replica.Utils.SessionUtils;
 import za.co.reverside.takealot_replica.controller.Constants.ControllerConstants;
 
 @RestController
@@ -28,8 +28,6 @@ public class CartController {
     /**
      * Method to Add Products to the Shopping Cart First Check if the Product is
      * available in the Wishlist, if available, remove the product from Wishlist
-     *
-     * @author Sai Upadhyayula
      *
      * @param ProductID
      * @param HttpServletRequest
@@ -76,8 +74,6 @@ public class CartController {
     /**
      * Method to View the Items of Shopping Cart Retrieves the items to display
      * in the shopping cart page
-     *
-     * @author SaiUpadhyayula
      *
      * @param Model
      * @param ProductID

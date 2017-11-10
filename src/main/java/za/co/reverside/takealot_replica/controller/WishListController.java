@@ -14,7 +14,7 @@ import za.co.reverside.takealot_replica.Model.Product;
 import za.co.reverside.takealot_replica.Service.CartData;
 import za.co.reverside.takealot_replica.Service.CartService;
 import za.co.reverside.takealot_replica.Service.WishListService;
-import za.co.reverside.takealot_replica.Util.SessionUtils;
+import za.co.reverside.takealot_replica.Utils.SessionUtils;
 import za.co.reverside.takealot_replica.controller.Constants.ControllerConstants;
 
 @RestController

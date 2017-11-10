@@ -11,7 +11,8 @@ import za.co.reverside.takealot_replica.Model.AddressForm;
 import za.co.reverside.takealot_replica.Model.Customer;
 import za.co.reverside.takealot_replica.Service.AddressService;
 import za.co.reverside.takealot_replica.Service.CartService;
-import za.co.reverside.takealot_replica.Util.SessionUtils;
+import za.co.reverside.takealot_replica.Utils.SessionUtils;
+
 
 @RestController
 public class CheckoutController {
